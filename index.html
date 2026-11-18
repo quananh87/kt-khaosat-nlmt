@@ -6,12 +6,12 @@
 <title>Biên bản khảo sát điện mặt trời mái nhà</title>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f6f8;--card:#fff;--tx:#14202b;--mu:#5b6b79;--ln:#dbe2e8;--ac:#e8890c;--ac2:#0b5c8a;--ok:#1d8a4e;--in:#f8fafb;--red:#c0392b;box-sizing:border-box}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f161c;--card:#18222b;--tx:#e8eef3;--mu:#92a2b0;--ln:#2a3844;--ac:#f5a540;--ac2:#5fb4e6;--ok:#4cc582;--in:#111a21;--red:#ff7b6b}}
-:root[data-theme="dark"]{--bg:#0f161c;--card:#18222b;--tx:#e8eef3;--mu:#92a2b0;--ln:#2a3844;--ac:#f5a540;--ac2:#5fb4e6;--ok:#4cc582;--in:#111a21;--red:#ff7b6b}
+:root{--bg:#f4f6f8;--card:#fff;--tx:#14202b;--mu:#5b6b79;--ln:#dbe2e8;--ac:#e8890c;--ac2:#0b5c8a;--ok:#1d8a4e;--in:#f8fafb;--red:#c0392b;--wr:#d68910;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f161c;--card:#18222b;--tx:#e8eef3;--mu:#92a2b0;--ln:#2a3844;--ac:#f5a540;--ac2:#5fb4e6;--ok:#4cc582;--in:#111a21;--red:#ff7b6b;--wr:#f5b041}}
+:root[data-theme="dark"]{--bg:#0f161c;--card:#18222b;--tx:#e8eef3;--mu:#92a2b0;--ln:#2a3844;--ac:#f5a540;--ac2:#5fb4e6;--ok:#4cc582;--in:#111a21;--red:#ff7b6b;--wr:#f5b041}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',sans-serif;padding-bottom:env(safe-area-inset-bottom,0px)}
-.w{max-width:860px;margin:0 auto}
+.w{max-width:900px;margin:0 auto}
 header{background:linear-gradient(135deg,#0b3d5c,#0b5c8a 60%,#e8890c);color:#fff;padding:28px 20px 56px}
 header h1{margin:6px 0 4px;font-size:clamp(22px,4vw,30px);line-height:1.25}
 header p{margin:0;opacity:.85;font-size:14px}
@@ -25,11 +25,13 @@ header p{margin:0;opacity:.85;font-size:14px}
 button{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--ln);background:var(--in);color:var(--tx);padding:8px 14px;border-radius:8px;cursor:pointer}
 button.p{background:var(--ac2);border-color:var(--ac2);color:#fff}
 button.dg{background:var(--red);border-color:var(--red);color:#fff}
+button.on{background:var(--ac2);border-color:var(--ac2);color:#fff}
 main{padding:20px 16px 60px}
 section{background:var(--card);border:1px solid var(--ln);border-radius:14px;margin-bottom:16px;overflow:hidden}
 section h2{margin:0;padding:14px 18px;font-size:16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--ln)}
 section h2 b{background:var(--ac);color:#fff;border-radius:8px;min-width:32px;height:32px;display:grid;place-items:center;font-size:13px}
 .note{padding:10px 18px 0;color:var(--mu);font-size:13px}
+.sub{font-weight:600;padding:16px 18px 0;color:var(--ac2)}
 .g{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:16px 18px}
 .g .full{grid-column:1/-1}
 @media(max-width:600px){.g{grid-template-columns:1fr}}
@@ -41,7 +43,10 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ac2);outline-off
 .o label{display:flex;align-items:center;gap:8px;background:var(--in);border:1px solid var(--ln);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:14px}
 .o label:has(input:checked){border-color:var(--ac2);background:color-mix(in srgb,var(--ac2) 12%,var(--in))}
 .o input{accent-color:var(--ac2);width:17px;height:17px;margin:0}
-.pgd{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.hint{font-size:12.5px;margin-top:4px;min-height:0}
+.hint.ok{color:var(--ok)}.hint.warn{color:var(--wr)}.hint.bad{color:var(--red)}
+.pgd{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 18px 4px}
+.pgd .ph{grid-column:auto}
 @media(max-width:600px){.pgd{grid-template-columns:1fr}}
 .ph{border:1px solid var(--ln);border-radius:10px;padding:10px;background:var(--in)}
 .pt{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:600;gap:8px}
@@ -52,7 +57,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ac2);outline-off
 .im{position:relative;aspect-ratio:1;border-radius:6px;overflow:hidden}
 .im img{width:100%;height:100%;object-fit:cover}
 .im button{position:absolute;top:3px;right:3px;padding:0;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;border:0;line-height:1;font-size:14px}
-.res{margin:0 18px 12px;padding:14px;border-radius:10px;background:color-mix(in srgb,var(--ac) 12%,var(--card));border:1px dashed var(--ac);display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.res{margin:12px 18px 12px;padding:14px;border-radius:10px;background:color-mix(in srgb,var(--ac) 12%,var(--card));border:1px dashed var(--ac);display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
 .res strong{display:block;font-size:18px;color:var(--ac2)}
 .res span{font-size:12px;color:var(--mu)}
 .tw{overflow-x:auto;padding:0 18px 10px}
@@ -60,6 +65,19 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ac2);outline-off
 .tb th,.tb td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:right}
 .tb th:nth-child(-n+2),.tb td:nth-child(-n+2){text-align:left}
 .tb th{color:var(--mu);font-size:12px}
+.vtg{padding:12px 18px 0;display:flex;gap:8px;flex-wrap:wrap}
+.fc{border:1px solid var(--ln);border-radius:10px;padding:12px;margin:12px 16px 0;background:var(--in)}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px 10px}
+.fg label,.obr label{font-size:12px;color:var(--mu);display:block;margin-bottom:3px}
+.fg input,.fg select,.obr input,.obr select{width:100%;font:inherit;font-size:13.5px;padding:7px 8px;border:1px solid var(--ln);border-radius:7px;background:var(--card);color:var(--tx)}
+.obr{display:grid;grid-template-columns:1.6fr repeat(5,1fr) auto;gap:6px;align-items:end;margin-top:8px}
+@media(max-width:600px){.obr{grid-template-columns:1fr 1fr 1fr}}
+.addr{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.addr select{width:auto;font:inherit;font-size:13.5px;padding:7px 8px;border:1px solid var(--ln);border-radius:7px;background:var(--card);color:var(--tx)}
+.fdw{margin:12px 16px 0;border:1px solid var(--ln);border-radius:10px;padding:10px;background:var(--card)}
+.fcap{font-size:13px;font-weight:600;margin-bottom:6px}
+.dsvg{width:100%;height:auto;display:block;touch-action:none;user-select:none}
+.dsum{padding:10px 18px 0;font-weight:600;color:var(--ac2)}
 .sig{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px 18px}
 .sig div{border:1px solid var(--ln);border-radius:8px;padding:10px;min-height:90px;text-align:center;font-size:13px;color:var(--mu)}
 footer{text-align:center;color:var(--mu);font-size:12px;padding-bottom:30px}
@@ -68,7 +86,6 @@ footer{text-align:center;color:var(--mu);font-size:12px;padding-bottom:30px}
 .mb{background:var(--card);color:var(--tx);border-radius:14px;padding:20px;max-width:420px;width:100%;display:flex;flex-direction:column;gap:14px}
 .mb p{margin:0}
 .mb .acts{display:flex;gap:8px;justify-content:flex-end}
-.mb iframe{width:100%;height:60vh;border:1px solid var(--ln);border-radius:8px;background:#fff}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--tx);color:var(--card);padding:10px 16px;border-radius:10px;font-size:13.5px;z-index:60;max-width:90vw;display:none}
 .toast.on{display:block}
 </style>
@@ -79,34 +96,41 @@ footer{text-align:center;color:var(--mu);font-size:12px;padding-bottom:30px}
 <main class="w" id="app"></main>
 <footer>Biên bản khảo sát điện mặt trời mái nhà dân dụng</footer>
 
-<div class="ov" id="mdr" hidden><div class="mb"><p><b>Làm mới form?</b></p><p style="color:var(--mu);font-size:14px">Toàn bộ thông tin và ảnh đã nhập sẽ bị xóa. Thao tác này không hoàn tác được.</p><div class="acts"><button id="mc">Hủy</button><button id="mo" class="dg">Xóa hết</button></div></div></div>
-<div class="ov" id="mpv" hidden><div class="mb" style="max-width:820px"><p><b>Bản in biên bản</b></p><p style="color:var(--mu);font-size:13.5px">Trên máy tính: bấm Ctrl+P, chọn "Lưu dưới dạng PDF". Trên điện thoại: mở menu ⋮ của trình duyệt, chọn In, rồi Lưu dưới dạng PDF.</p><iframe id="pvf" title="Bản in"></iframe><div class="acts"><button id="pvc">Đóng</button></div></div></div>
+<div class="ov" id="mdr" hidden><div class="mb"><p><b>Làm mới form?</b></p><p style="color:var(--mu);font-size:14px">Toàn bộ thông tin, bản vẽ và ảnh đã nhập sẽ bị xóa. Thao tác này không hoàn tác được.</p><div class="acts"><button id="mc">Hủy</button><button id="mo" class="dg">Xóa hết</button></div></div></div>
 <div class="toast" id="tst"></div>
 
 <script>
+var RT=['Mái Thái','Mái tôn','Tầng thượng bê tông'];
+var ORI=['Bắc','Đông Bắc','Đông','Đông Nam','Nam','Tây Nam','Tây','Tây Bắc'];
+var OB={gt:{n:'Giếng trời',c:'#7fd1f5',w:0.8,h:0.8,z:0.1},cay:{n:'Cây che bóng',c:'#3f9e5a',w:1.5,h:1.5,z:3},cot:{n:'Cột điện',c:'#8a8f98',w:0.3,h:0.3,z:6},cn:{n:'Cục nóng máy lạnh',c:'#4b5563',w:0.9,h:0.4,z:0.7},nha:{n:'Nhà cao tầng / tường',c:'#a0745b',w:3,h:1,z:8},bon:{n:'Bồn nước',c:'#6b8fb3',w:1.2,h:1.2,z:1.5},kh:{n:'Vật cản khác',c:'#c9b458',w:1,h:1,z:1}};
+var HINTS=['cb','dd','vd','id'];
 var SECS=[
 {t:'Thông tin chung',f:[['kh','Khách hàng','t'],['sdt','Số điện thoại','t'],['dc','Địa chỉ công trình','t',1],['ng','Ngày khảo sát','d'],['kt','Kỹ thuật viên','t'],['th','Thời tiết / thời điểm','t']]},
-{t:'Nhu cầu sử dụng điện',n:'Xác định thời gian và mục đích dùng điện để chọn hòa lưới, hybrid hay độc lập.',tariff:1,f:[
-['td','Tiền điện trung bình / tháng (VNĐ)','n'],['kwh','Sản lượng tiêu thụ / tháng (kWh)','n'],['vat','Thuế VAT điện (%)','n',0,null,8],
+{t:'Nhu cầu sử dụng điện',n:'Nhập 1 trong 2 ô (kWh hoặc tiền điện), ô còn lại sẽ tự tính theo biểu giá 5 bậc.',tariff:1,f:[
+['kwh','Sản lượng tiêu thụ / tháng (kWh)','n'],
+['td','Tiền điện / tháng (VNĐ, gồm VAT)','n'],
+['vat','Thuế VAT điện (%)','n',0,null,8],
 ['gd','Thời điểm dùng điện nhiều','r',0,['Ban ngày','Ban đêm','Đều nhau']],
 ['bt','Cần lưu trữ bằng battery?','r',0,['Có','Không','Chưa rõ']],
 ['bk','Cần backup khi mất điện?','r',0,['Có','Không','Chưa rõ']],
 ['pha','Điện lưới','r',0,['1 pha','3 pha']],
 ['gi','Mong muốn giảm tiền điện (%)','n',0,null,100],
-['hd','Hồ sơ thu thập','c',1,['Hóa đơn điện 2–6 tháng gần nhất','Ảnh mái nhà từ khách hàng']]]},
-{t:'Khảo sát mái nhà',f:[
-['lm','Loại mái','r',1,['Mái tôn','Mái ngói','Mái bê tông']],
-['hm','Hướng mái','s',0,['Bắc','Đông Bắc','Đông','Đông Nam','Nam','Tây Nam','Tây','Tây Bắc']],
-['dn','Độ nghiêng mái (°)','n'],['dm','Diện tích mái (m²)','n'],['dl','Diện tích lắp pin thực tế (m²)','n'],
+['hd','Hóa đơn điện 3–6 tháng gần nhất','i',1,['Hóa đơn điện 3–6 tháng gần nhất']]]},
+{t:'Khảo sát mái nhà',draw:1,f:[
+['rt','Loại mái','r',1,RT,'Mái Thái'],
+['sub','Cấu hình mái','r',1,null],
+['dn','Độ nghiêng mái (°)','n'],
+['pl','Dài 1 tấm pin (m)','n',0,null,2.38],
+['pw','Rộng 1 tấm pin (m)','n',0,null,1.13],
 ['tt','Tình trạng mái','c',1,['Tốt','Dột','Mục','Rỉ sét','Xuống cấp']],
 ['bc','Bóng che','c',1,['Cây','Bồn nước','Nhà cao tầng','Trụ điện','Không có']],
 ['anhm','Ảnh hiện trạng mái','i',1,['Toàn cảnh mái','Tình trạng mái','Bóng che']],
 ['ghm','Ghi chú kết cấu / khả năng chịu tải','a',1]]},
 {t:'Khảo sát hệ thống điện',f:[
-['cb','Công suất CB tổng (A)','n'],['dd','Dây điện hiện hữu (tiết diện)','t'],
+['cb','Công suất CB tổng (A)','n'],['dd','Tiết diện dây hiện hữu (mm², đồng)','n'],
 ['td2','Hệ thống tiếp địa','r',0,['Đạt','Chưa có','Cần cải tạo']],
 ['cp','Cân pha (nếu 3 pha)','r',0,['Cân','Lệch','Không áp dụng']],
-['vd','Điện áp đo (V)','t'],['id','Dòng tải đo (A)','t'],
+['vd','Điện áp đo (V)','n'],['id','Dòng tải đo (A)','n'],
 ['tai','Tải lớn trong nhà','c',1,['Máy lạnh','Bơm nước','Máy nước nóng','Sạc xe điện','Khác']],
 ['dnoi','Đủ điều kiện đấu nối?','r',1,['Đạt','Cần cải tạo','Không đạt']],
 ['btd','Mô tả hiện trạng bất thường (nếu có)','a',1],
@@ -117,19 +141,18 @@ var SECS=[
 ['btv','Mô tả hiện trạng bất thường (nếu có)','a',1],
 ['anhv','Ảnh vị trí lắp đặt / hiện trạng bất thường','i',1,['Vị trí inverter','Vị trí battery','Đường đi dây DC/AC','Hiện trạng bất thường']]]},
 {t:'Ảnh hiện trường',f:[['anh','Chụp hoặc chọn ảnh cho từng hạng mục. Ảnh được nén và lưu trên thiết bị.','i',1,['Toàn cảnh mái','Tủ điện','Công tơ','Đường đi dây','Bóng che','Vị trí inverter','Vị trí battery','Tình trạng mái']]]},
-{t:'Tính toán công suất & số tấm pin',n:'Điều chỉnh thông số theo khu vực. Kết quả tự tính từ kWh/tháng ở mục 02.',pv:1,f:[
-['psw','Công suất 1 tấm pin (Wp)','n',0,null,550],['ap','Diện tích 1 tấm (m²)','n',0,null,2.6],
+{t:'Tính toán công suất & số tấm pin',n:'Mặc định tấm 630 Wp, diện tích 2,7 m². Có thể sửa theo loại tấm thực tế.',pv:1,f:[
+['psw','Công suất 1 tấm pin (Wp)','n',0,null,630],['ap','Diện tích 1 tấm (m²)','n',0,null,2.7],
 ['psh','Giờ nắng quy đổi (kWh/m²/ngày)','n',0,null,4],['pr','Hiệu suất hệ thống PR (%)','n',0,null,80],
 ['sd','Tỷ lệ điện dùng trực tiếp ban ngày (%)','n',0,null,80],['gia','Đơn giá đầu tư (VNĐ/kWp)','n']]},
-{t:'Đánh giá sơ bộ & đề xuất',f:[
+{t:'Đánh giá sơ bộ & đề xuất',str:1,f:[
 ['pa','Phương án đề xuất','r',1,['Hòa lưới (on-grid)','Hybrid','Độc lập (off-grid)']],
-['ht','Số string / MPPT dự kiến','t'],['dap','Điện áp string (V)','t'],
 ['mr','Khả năng mở rộng sau này','r',0,['Có','Hạn chế']],
 ['prop','Hồ sơ proposal cần có','c',1,['Layout tấm pin','Single line diagram','Sản lượng dự kiến','Hiệu quả tiết kiệm','Danh mục thiết bị','Chính sách bảo hành','Phương án thi công','Lưu ý vận hành']],
 ['kl','Kết luận / kiến nghị','a',1]]}
 ];
 
-var st={},PH={},KEY='solar-survey-v3',DB=null;
+var st={},PH={},KEY='solar-survey-v4',DB=null,VIEW='2d',LAY={N:0,faces:[]};
 try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){st={}}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
 function $(i){return document.getElementById(i)}
@@ -138,8 +161,10 @@ function gs(id){return st[id]===undefined||st[id]===null?'':String(st[id])}
 function fm(n,d){return (+n||0).toLocaleString('vi-VN',{maximumFractionDigits:d||0})}
 function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function toast(m){var t=$('tst');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('on')},3500)}
+function cell(v,l){return '<div><strong>'+v+'</strong><span>'+l+'</span></div>'}
+function NOTE(t){return '<div class="note" style="padding-bottom:14px">'+t+'</div>'}
 
-/* ---------- Tính toán ---------- */
+/* ---------- Biểu giá điện & tấm pin ---------- */
 var TR=[[100,1901],[100,2289],[200,2894],[300,3456],[1e9,3844]],LB=['0–100','101–200','201–400','401–700','Từ 701'];
 function vatR(){return gv('vat',8)/100}
 function bill(k){var r=k,s=0,w=[];TR.forEach(function(t){var u=Math.max(0,Math.min(r,t[0]));w.push([u,t[1],u*t[1]]);s+=u*t[1];r-=u});return{s:s,w:w}}
@@ -148,47 +173,192 @@ function tariff(){var v=vatR(),k=gv('kwh',0),est=false;if(!k&&gv('td',0)){k=kwhF
  if(!k)return null;var b=bill(k);return{k:k,est:est,b:b,pre:b.s,tot:b.s*(1+v),v:v}}
 function pv(k){
  if(!k)return null;
- var W=gv('psw',550),H=gv('psh',4),PR=gv('pr',80)/100,AP=gv('ap',2.6),SD=gv('sd',80)/100,P=gv('gi',100)/100;
+ var W=gv('psw',630),H=gv('psh',4),PR=gv('pr',80)/100,AP=gv('ap',2.7),SD=gv('sd',80)/100,P=gv('gi',100)/100;
  if(!W||!H||!PR||!SD)return null;
  var per=W/1000*H*PR,n=Math.ceil(k/30*P/SD/per),kp=n*W/1000,day=n*per,mon=day*30,self=Math.min(mon*SD,k);
- var sv=(bill(k).s-bill(Math.max(0,k-self)).s)*(1+vatR()),gia=gv('gia',0),inc=gia*kp,pb=sv>0&&inc>0?inc/(sv*12):null;
- var dl=gv('dl',0),mx=dl&&AP?Math.floor(dl/AP):0;
- return{per:per,n:n,kp:kp,day:day,mon:mon,self:self,sv:sv,pb:pb,mx:mx,area:n*AP,inv:[kp*0.8,kp],inc:inc};
+ var sv=(bill(k).s-bill(Math.max(0,k-self)).s)*(1+vatR()),inc=gv('gia',0)*kp,pb=sv>0&&inc>0?inc/(sv*12):null;
+ return{per:per,n:n,kp:kp,day:day,mon:mon,sv:sv,pb:pb,area:n*AP};
 }
-function cell(v,l){return '<div><strong>'+v+'</strong><span>'+l+'</span></div>'}
 function tbl(t){return '<table class="tb"><tr><th>Bậc</th><th>Mức (kWh)</th><th>Đơn giá</th><th>kWh</th><th>Thành tiền</th></tr>'+t.b.w.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td>'+LB[i]+'</td><td>'+fm(TR[i][1])+'</td><td>'+fm(r[0])+'</td><td>'+fm(r[2])+'</td></tr>'}).join('')+'</table>'}
-function tariffHTML(t){return '<div class="res">'+cell((t.est?'≈ ':'')+fm(t.k),'kWh / tháng')+cell(fm(t.pre),'Tiền điện chưa VAT (đ)')+cell(fm(t.tot),'Tổng gồm VAT '+fm(t.v*100,1)+'% (đ)')+'</div><div class="tw">'+tbl(t)+'</div><div class="note" style="padding-bottom:14px">Biểu giá 5 bậc áp dụng từ 01/11/2026, chưa gồm VAT. '+(t.est?'kWh được ước tính ngược từ tiền điện đã nhập.':'')+'</div>'}
-function pvHTML(p){return '<div class="res">'+cell(fm(p.per,2),'kWh / tấm / ngày')+cell(fm(p.n),'Số tấm cần lắp')+cell(fm(p.kp,2),'Công suất (kWp)')+cell(fm(p.day,1),'Sản lượng / ngày (kWh)')+cell(fm(p.mon),'Sản lượng / tháng (kWh)')+cell(fm(p.area,1),'Diện tích cần (m²)')+cell(fm(p.sv),'Tiết kiệm / tháng (đ)')+cell(p.pb?fm(p.pb,1)+' năm':'–','Hoàn vốn')+cell(p.mx?fm(p.mx):'–','Số tấm tối đa theo diện tích')+'</div>'+(p.mx&&p.n>p.mx?'<div class="note" style="color:var(--red);padding-bottom:10px">⚠ Diện tích lắp thực tế chỉ đủ '+p.mx+' tấm ('+fm(p.mx*gv('psw',550)/1000,2)+' kWp), ít hơn số tấm cần.</div>':'')+'<div class="note" style="padding-bottom:14px">kWh/tấm/ngày = Wp ÷ 1000 × giờ nắng × PR. Số tấm = (kWh/tháng ÷ 30 × % giảm ÷ % dùng trực tiếp) ÷ kWh/tấm/ngày, làm tròn lên. Inverter gợi ý ≈ '+fm(p.inv[0],1)+' – '+fm(p.inv[1],1)+' kW. Tiết kiệm đã trừ phần điện tự dùng ban ngày.</div>'}
+function tariffHTML(t){return '<div class="res">'+cell((t.est?'≈ ':'')+fm(t.k),t.est?'kWh ước tính từ tiền điện':'kWh / tháng')+cell(fm(t.pre),'Tiền điện chưa VAT (đ)')+cell(fm(t.tot),'Tổng gồm VAT '+fm(t.v*100,1)+'% (đ)')+'</div><div class="tw">'+tbl(t)+'</div><div class="note" style="padding-bottom:14px">Biểu giá 5 bậc áp dụng từ 01/11/2026, chưa gồm VAT.</div>'}
+function strInfo(N,kwp){
+ if(!N)return null;
+ var strings=Math.max(1,Math.ceil(N/14)),mppt=Math.max(Math.ceil(kwp/8),Math.ceil(strings/2));
+ strings=Math.max(strings,mppt);
+ return{mppt:mppt,strings:strings,per:Math.ceil(N/strings),kwp:kwp};
+}
+function pvHTML(p){
+ var N=LAY.N;
+ return '<div class="res">'+cell(fm(p.per,2),'kWh / tấm / ngày')+cell(fm(p.n),'Số tấm cần (tính toán)')+cell(fm(N),'Bố trí được (mục 03)')+cell(fm(p.kp,2),'Công suất cần (kWp)')+cell(fm(p.day,1),'Sản lượng / ngày (kWh)')+cell(fm(p.mon),'Sản lượng / tháng (kWh)')+cell(fm(p.area,1),'Diện tích cần (m²)')+cell(fm(p.sv),'Tiết kiệm / tháng (đ)')+cell(p.pb?fm(p.pb,1)+' năm':'–','Hoàn vốn')+'</div>'
+ +(N&&N<p.n?'<div class="note" style="color:var(--red)">⚠ Bố trí hiện tại chỉ được '+N+' tấm, ít hơn số tấm cần '+p.n+'. Điều chỉnh mặt mái hoặc vật cản ở mục 03.</div>':'')
+ +'<div class="note" style="padding-bottom:14px">kWh/tấm/ngày = Wp ÷ 1000 × giờ nắng × PR. Số tấm cần = (kWh/tháng ÷ 30 × % giảm ÷ % dùng trực tiếp) ÷ kWh/tấm/ngày, làm tròn lên. Tiết kiệm đã trừ phần điện tự dùng ban ngày.</div>';
+}
 function renderCalc(){
- var t=tariff(),c1=$('c1'),c2=$('c2');
- if(c1)c1.innerHTML=t?tariffHTML(t):'<div class="note" style="padding-bottom:14px">Nhập kWh/tháng hoặc tiền điện để tính theo 5 bậc.</div>';
- if(c2){var p=t?pv(t.k):null;c2.innerHTML=p?pvHTML(p):'<div class="note" style="padding-bottom:14px">Nhập sản lượng ở mục 02 để tính số tấm pin.</div>'}
+ var t=tariff(),p=t?pv(t.k):null;
+ if($('c1'))$('c1').innerHTML=t?tariffHTML(t):NOTE('Nhập kWh/tháng hoặc tiền điện để tính theo 5 bậc.');
+ if($('c2'))$('c2').innerHTML=p?pvHTML(p):NOTE('Nhập sản lượng ở mục 02 để tính số tấm pin.');
+ if($('c3')){
+  var N=LAY.N||(p?p.n:0),kwp=N*gv('psw',630)/1000,si=strInfo(N,kwp);
+  $('c3').innerHTML=si?'<div class="res">'+cell(si.mppt,'Số MPPT')+cell(si.strings,'Số string')+cell(si.per,'Tấm / string (tối đa 14)')+cell(fm(kwp,2),'Tổng công suất (kWp)')+'</div><div class="note" style="padding-bottom:14px">Ước tính: mỗi MPPT tối đa khoảng 8 kWp, mỗi string tối đa 14 tấm, string chia đều cho các MPPT. Cần kiểm tra lại theo datasheet inverter thực tế.</div>':NOTE('Nhập sản lượng ở mục 02 hoặc bố trí tấm ở mục 03.');
+ }
+}
+
+/* ---------- Gợi ý thông số hiện trạng ---------- */
+function hint(id,arr){var el=$('h_'+id);if(!el)return;if(!arr){el.textContent='';el.className='hint';return}el.textContent=arr[0];el.className='hint '+arr[1]}
+function needMM(cb){return cb<=16?1.5:cb<=20?2.5:cb<=32?4:cb<=40?6:cb<=50?10:16}
+function renderHints(){
+ var cb=gv('cb',0),dd=gv('dd',0),vd=gv('vd',0),id=gv('id',0),three=gs('pha').indexOf('3')===0&&gs('pha')!=='';
+ hint('cb',cb?(cb<20?['Thấp — có thể không đủ cho máy lạnh và tải lớn','warn']:cb<=50?['Bình thường (khoảng 20–50 A)','ok']:['Cao — nên kiểm tra tiết diện dây và tải','warn']):null);
+ hint('dd',dd&&cb?(dd>=needMM(cb)?['Đạt — tối thiểu '+needMM(cb)+' mm² cho CB '+cb+' A','ok']:['Thiếu — tối thiểu '+needMM(cb)+' mm² cho CB '+cb+' A','bad']):null);
+ var lo=three?361:209,hi=three?399:231;
+ hint('vd',vd?(vd<lo?['Thấp (dưới '+lo+' V) — kiểm tra đường dây và công tơ','bad']:vd>hi?['Cao (trên '+hi+' V) — kiểm tra điện áp đầu vào','bad']:['Bình thường ('+lo+'–'+hi+' V)','ok']):null);
+ hint('id',id&&cb?(id/cb<=0.8?['Bình thường (≤ 80% CB)','ok']:id/cb<=1?['Gần ngưỡng (80–100% CB) — nên giảm tải','warn']:['Quá tải (vượt CB)','bad']):null);
+}
+
+/* ---------- Mặt mái & bố trí tấm ---------- */
+function subOpts(r){return r===RT[0]?['2 mặt (hai dốc)','4 mặt (bốn dốc)']:r===RT[1]?['1 mái','2 mái']:['Phẳng (đặt nằm)','Giá đỡ nghiêng','Có lan can / tường bao']}
+function curRT(){return st.rt||RT[0]}
+function curSub(){var i=subOpts(curRT()).indexOf(st.sub);return i<0?0:i}
+function faceCount(){var r=curRT(),i=curSub();return r===RT[0]?(i===1?4:2):r===RT[1]?(i===1?2:1):1}
+function defFaces(r,n){
+ if(r===RT[0])return (n===4?['Bắc','Đông','Nam','Tây']:['Đông','Tây']).map(function(o,i){return{nm:'Mặt '+(i+1),o:o,L:8,W:4.5,ori:'Ngang',rows:0,ob:[]}});
+ if(r===RT[1])return [{nm:'Mái 1',o:'Nam',L:8,W:3,ori:'Ngang',rows:1,ob:[]},{nm:'Mái 2',o:'Bắc',L:8,W:3,ori:'Ngang',rows:1,ob:[]}].slice(0,n);
+ return [{nm:'Sân thượng',o:'Nam',L:10,W:6,ori:'Ngang',rows:0,ob:[]}];
+}
+function ensureFaces(){var n=faceCount();if(!st.faces||st.frt!==curRT()||st.faces.length!==n){st.faces=defFaces(curRT(),n);st.frt=curRT();persist()}}
+function pl(){return gv('pl',2.38)}
+function pw(){return gv('pw',1.13)}
+function marginOf(){var r=curRT(),i=curSub();return r===RT[2]?(i===2?0.8:0.5):0.3}
+function rgOf(){return curRT()===RT[2]&&curSub()===1?1.0:0.03}
+function hits(q,obs){var P=0.1;return obs.some(function(o){return q.x<o.x+o.w+P&&o.x<q.x+q.w+P&&q.y<o.y+o.h+P&&o.y<q.y+q.h+P})}
+function layoutFace(f){
+ var m=marginOf(),rg=rgOf(),g=0.03,hz=f.ori!=='Dọc',cw=hz?pl():pw(),ch=hz?pw():pl(),L=+f.L||0,W=+f.W||0,aL=L-2*m,aW=W-2*m,out=[];
+ if(aL<=0||aW<=0||cw<=0||ch<=0)return out;
+ var cols=Math.floor((aL+g)/(cw+g)),rows=Math.floor((aW+rg)/(ch+rg));
+ if(+f.rows>0)rows=Math.min(rows,+f.rows);
+ for(var r=0;r<rows;r++)for(var c=0;c<cols;c++){var q={x:m+c*(cw+g),y:m+r*(ch+rg),w:cw,h:ch};if(!hits(q,f.ob||[]))out.push(q)}
+ return out;
+}
+function totalN(){return (st.faces||[]).reduce(function(a,f){return a+layoutFace(f).length},0)}
+function iso(x,y,z){return[(x-y)*0.866,(x+y)*0.5-z]}
+function layoutScene(){var ox=0;return (st.faces||[]).map(function(f,i){var it={f:f,i:i,rc:layoutFace(f),ox:ox};ox+=(+f.L||0)+2;return it})}
+function ob2D(o,i,j){
+ var d=OB[o.t]||OB.kh,s='';
+ if(o.t==='cay')s+='<circle cx="'+(o.x+o.w/2)+'" cy="'+(o.y+o.h/2)+'" r="'+(o.w/2)+'" fill="'+d.c+'" opacity="0.85"/>';
+ else s+='<rect x="'+o.x+'" y="'+o.y+'" width="'+o.w+'" height="'+o.h+'" fill="'+d.c+'" opacity="0.9"/>';
+ s+='<text x="'+(o.x+o.w/2)+'" y="'+(o.y+o.h/2+0.08)+'" font-size="0.2" text-anchor="middle" fill="#111" stroke="#fff" stroke-width="0.04" paint-order="stroke" style="pointer-events:none">'+esc(d.n)+'</text>';
+ return '<g data-ob="'+i+'|'+j+'" data-mode="2d" style="cursor:move">'+s+'</g>';
+}
+function scene2D(items){
+ var x0=items.length?Math.min.apply(null,items.map(function(it){return it.ox})):0,mx=0,mw=0;
+ items.forEach(function(it){mx=Math.max(mx,it.ox+(+it.f.L||0));mw=Math.max(mw,+it.f.W||0)});
+ var s='<svg class="dsvg" viewBox="'+(x0-0.9)+' -0.9 '+(mx-x0+1.8)+' '+(mw+2)+'" xmlns="http://www.w3.org/2000/svg">';
+ items.forEach(function(it){
+  var f=it.f,L=+f.L||0,W=+f.W||0,m=marginOf();
+  s+='<g transform="translate('+it.ox+' 0)">';
+  s+='<rect x="0" y="0" width="'+L+'" height="'+W+'" fill="#f8fafb" stroke="#0b5c8a" stroke-width="0.05"/>';
+  s+='<rect x="'+m+'" y="'+m+'" width="'+Math.max(0,L-2*m)+'" height="'+Math.max(0,W-2*m)+'" fill="none" stroke="#888" stroke-width="0.02" stroke-dasharray="0.15 0.1"/>';
+  it.rc.forEach(function(r){s+='<rect x="'+r.x+'" y="'+r.y+'" width="'+r.w+'" height="'+r.h+'" fill="#1f5fa8" stroke="#fff" stroke-width="0.02" opacity="0.9"/>'});
+  (f.ob||[]).forEach(function(o,j){s+=ob2D(o,it.i,j)});
+  s+='<text x="0" y="-0.35" font-size="0.3" font-weight="600" fill="#0b3d5c">'+esc(f.nm)+' · hướng '+esc(f.o)+' · '+it.rc.length+' tấm</text>';
+  s+='<text x="'+(L/2)+'" y="'+(W+0.55)+'" font-size="0.25" text-anchor="middle" fill="#555">'+fm(L,2)+' m</text>';
+  s+='<text x="-0.45" y="'+(W/2)+'" font-size="0.25" text-anchor="middle" fill="#555" transform="rotate(-90 -0.45 '+(W/2)+')">'+fm(W,2)+' m</text>';
+  s+='</g>';
+ });
+ return s+'</svg>';
+}
+function scene3D(items){
+ var P=[];
+ items.forEach(function(it){var f=it.f,L=+f.L||0,W=+f.W||0,ox=it.ox;
+  [[0,0],[L,0],[L,W],[0,W]].forEach(function(p){P.push(iso(p[0]+ox,p[1],0))});
+  (f.ob||[]).forEach(function(o){var z=Math.max(0.05,+o.z||0);[[o.x,o.y],[o.x+o.w,o.y],[o.x+o.w,o.y+o.h],[o.x,o.y+o.h]].forEach(function(p){P.push(iso(p[0]+ox,p[1],0));P.push(iso(p[0]+ox,p[1],z))})})});
+ if(!P.length)P=[[0,0]];
+ var xs=P.map(function(p){return p[0]}),ys=P.map(function(p){return p[1]});
+ var x0=Math.min.apply(null,xs)-0.6,y0=Math.min.apply(null,ys)-0.6,x1=Math.max.apply(null,xs)+0.6,y1=Math.max.apply(null,ys)+0.6;
+ var s='<svg class="dsvg" viewBox="'+x0+' '+y0+' '+(x1-x0)+' '+(y1-y0)+'" xmlns="http://www.w3.org/2000/svg">';
+ items.forEach(function(it){
+  var f=it.f,L=+f.L||0,W=+f.W||0,ox=it.ox;
+  function poly(a,fill,op){var pp=a.map(function(p){var q=iso(p[0]+ox,p[1],p[2]);return q[0].toFixed(3)+','+q[1].toFixed(3)}).join(' ');return '<polygon points="'+pp+'" fill="'+fill+'"'+(op?' fill-opacity="'+op+'"':'')+' stroke="#0b3d5c" stroke-width="0.02"/>'}
+  s+='<g>'+poly([[0,0,0],[L,0,0],[L,W,0],[0,W,0]],'#dfe9f1');
+  it.rc.forEach(function(r){s+=poly([[r.x,r.y,0.05],[r.x+r.w,r.y,0.05],[r.x+r.w,r.y+r.h,0.05],[r.x,r.y+r.h,0.05]],'#1f5fa8',0.9)});
+  (f.ob||[]).map(function(o,j){return {o:o,j:j}}).sort(function(a,b){return (a.o.x+a.o.y+a.o.w+a.o.h)-(b.o.x+b.o.y+b.o.w+b.o.h)}).forEach(function(q){
+   var o=q.o,c=(OB[o.t]||OB.kh).c,zt=Math.max(0.05,+o.z||0),x=o.x,y=o.y,X=o.x+o.w,Y=o.y+o.h;
+   var sd1=[[X,y,0],[X,Y,0],[X,Y,zt],[X,y,zt]],sd2=[[x,Y,0],[X,Y,0],[X,Y,zt],[x,Y,zt]],tp=[[x,y,zt],[X,y,zt],[X,Y,zt],[x,Y,zt]];
+   s+='<g data-ob="'+it.i+'|'+q.j+'" data-mode="3d" style="cursor:move">'+poly(sd1,c)+poly(sd1,'#000',0.25)+poly(sd2,c)+poly(sd2,'#000',0.4)+poly(tp,c)+'</g>';
+  });
+  s+='</g>';
+ });
+ return s+'</svg>';
+}
+function svg2D(f,rc,i){return scene2D([{f:f,i:i||0,rc:rc,ox:0}])}
+function svg3D(f,rc,i){return scene3D([{f:f,i:i||0,rc:rc,ox:0}])}
+function areaInfo(){var g=0;(st.faces||[]).forEach(function(f){g+=(+f.L||0)*(+f.W||0)});var N=totalN();return{gross:g,N:N,used:N*pl()*pw(),kwp:N*gv('psw',630)/1000}}
+function areaHTML(){var a=areaInfo();return '<div class="res">'+cell(fm(a.gross,1)+' m²','Tổng diện tích mái')+cell(fm(a.used,1)+' m²','Diện tích tấm bố trí')+cell(fm(a.N),'Số tấm bố trí được')+cell(fm(a.kwp,2)+' kWp','Công suất tối đa')+'</div>'}
+function renderDraw(){
+ var items=layoutScene();LAY={N:0,faces:[]};
+ items.forEach(function(it){LAY.N+=it.rc.length;LAY.faces.push(it.rc.length)});
+ var h='';
+ if(items.length>1)h+='<div class="fdw"><div class="fcap">Tổng thể các mặt</div>'+(VIEW==='3d'?scene3D(items):scene2D(items))+'</div>';
+ items.forEach(function(it){
+  var one={f:it.f,i:it.i,rc:it.rc,ox:0};
+  h+='<div class="fdw"><div class="fcap">Mặt '+(it.i+1)+' · '+esc(it.f.nm)+' · bố trí được '+it.rc.length+' tấm</div>'+(VIEW==='3d'?scene3D([one]):scene2D([one]))+'</div>';
+ });
+ if($('dw'))$('dw').innerHTML=h||NOTE('Chưa có mặt mái.');
+ if($('dsum'))$('dsum').innerHTML=areaHTML();
+ document.querySelectorAll('.vb').forEach(function(b){b.classList.toggle('on',b.dataset.v===VIEW)});
+}
+function renderFE(){
+ var h='';
+ st.faces.forEach(function(f,i){
+  h+='<div class="fc"><div class="fg">'
+  +'<div><label>Tên mặt</label><input type="text" value="'+esc(f.nm)+'" data-m="'+i+'|nm"></div>'
+  +'<div><label>Hướng</label><select data-m="'+i+'|o">'+ORI.map(function(x){return '<option'+(x===f.o?' selected':'')+'>'+x+'</option>'}).join('')+'</select></div>'
+  +'<div><label>Dài L (m)</label><input type="number" step="any" value="'+f.L+'" data-m="'+i+'|L"></div>'
+  +'<div><label>Rộng W (m)</label><input type="number" step="any" value="'+f.W+'" data-m="'+i+'|W"></div>'
+  +'<div><label>Hướng tấm</label><select data-m="'+i+'|ori"><option'+(f.ori!=='Dọc'?' selected':'')+'>Ngang</option><option'+(f.ori==='Dọc'?' selected':'')+'>Dọc</option></select></div>'
+  +'<div><label>Số hàng (0 = tự động)</label><input type="number" min="0" step="1" value="'+f.rows+'" data-m="'+i+'|rows"></div>'
+  +'</div>';
+  (f.ob||[]).forEach(function(o,j){
+   h+='<div class="obr"><div><label>Loại</label><select data-m="'+i+'|'+j+'|t">'+Object.keys(OB).map(function(k){return '<option value="'+k+'"'+(k===o.t?' selected':'')+'>'+OB[k].n+'</option>'}).join('')+'</select></div>'
+   +[['x','X (m)'],['y','Y (m)'],['w','Rộng (m)'],['h','Dài (m)'],['z','Cao (m)']].map(function(a){return '<div><label>'+a[1]+'</label><input type="number" step="any" value="'+o[a[0]]+'" data-m="'+i+'|'+j+'|'+a[0]+'"></div>'}).join('')
+   +'<div><label>&nbsp;</label><button data-del="'+i+'|'+j+'">Xóa</button></div></div>';
+  });
+  h+='<div class="addr"><select data-nt="'+i+'">'+Object.keys(OB).map(function(k){return '<option value="'+k+'">'+OB[k].n+'</option>'}).join('')+'</select><button data-add="'+i+'">+ Thêm vật cản</button></div></div>';
+ });
+ $('fe').innerHTML=h;
 }
 
 /* ---------- Form ---------- */
 function fieldHTML(f){
- var id=f[0],l=f[1],t=f[2],o=f[4]||[],def=f[5],v=st[id]===undefined?(def===undefined?'':def):st[id],cls=f[3]||t==='a'||t==='c'||t==='r'||t==='i'?' class="full"':'';
- if(t==='i'){return '<div class="full pgd" style="padding:0">'+o.map(function(x,j){var k=id+j;return '<div class="ph"><div class="pt"><span>'+esc(x)+'</span><label class="b">+ Ảnh<input class="fi" type="file" accept="image/*" multiple data-p="'+k+'"></label></div><div class="th" data-t="'+k+'"></div></div>'}).join('')+'</div>'}
+ var id=f[0],l=f[1],t=f[2],o=f[4]||[],def=f[5],cls=f[3]||t==='a'||t==='c'||t==='r'||t==='i'?' class="full"':'';
+ if(id==='sub')o=subOpts(curRT());
+ var v=st[id]===undefined?(def===undefined?'':def):st[id];
+ if(id==='sub')v=o[curSub()];
+ if(t==='i')return '<div class="full pgd" style="padding:0">'+o.map(function(x,j){var k=id+j;return '<div class="ph"><div class="pt"><span>'+esc(x)+'</span><label class="b">+ Ảnh<input class="fi" type="file" accept="image/*" multiple data-p="'+k+'"></label></div><div class="th" data-t="'+k+'"></div></div>'}).join('')+'</div>';
  var h='<div'+cls+'><label class="l">'+esc(l)+'</label>';
  if(t==='t'||t==='n'||t==='d')h+='<input type="'+(t==='t'?'text':t==='n'?'number':'date')+'" '+(t==='n'?'step="any" inputmode="decimal" ':'')+'data-k="'+id+'" value="'+esc(v)+'">';
  else if(t==='a')h+='<textarea data-k="'+id+'">'+esc(v)+'</textarea>';
- else if(t==='s')h+='<select data-k="'+id+'"><option value="">— Chọn —</option>'+o.map(function(x){return '<option'+(v===x?' selected':'')+'>'+esc(x)+'</option>'}).join('')+'</select>';
  else if(t==='r')h+='<div class="o">'+o.map(function(x){return '<label><input type="radio" name="'+id+'" data-k="'+id+'" value="'+esc(x)+'"'+(v===x?' checked':'')+'>'+esc(x)+'</label>'}).join('')+'</div>';
  else h+='<div class="o">'+o.map(function(x,j){return '<label><input type="checkbox" data-k="'+id+j+'"'+(st[id+j]?' checked':'')+'>'+esc(x)+'</label>'}).join('')+'</div>';
+ if(HINTS.indexOf(id)>=0)h+='<div class="hint" id="h_'+id+'"></div>';
  return h+'</div>';
 }
 function build(){
+ ensureFaces();
  var h='';
  SECS.forEach(function(s,i){
   h+='<section><h2><b>'+String(i+1).padStart(2,'0')+'</b>'+esc(s.t)+'</h2>'+(s.n?'<div class="note">'+esc(s.n)+'</div>':'')+'<div class="g">'+s.f.map(fieldHTML).join('')+'</div>';
   if(s.tariff)h+='<div id="c1"></div>';
+  if(s.draw)h+='<div class="sub">Bản vẽ mái & bố trí tấm pin</div><div class="note">Chọn cấu hình mái, chỉnh kích thước mặt mái, thêm hoặc xóa vật cản. Kéo trực tiếp vật cản trên bản vẽ (2D hoặc 3D) để di chuyển. Số tấm tự tính, tránh vật cản và giữ khoảng lề.</div><div class="vtg"><button class="vb" data-v="2d">Bản vẽ 2D (mặt bằng)</button><button class="vb" data-v="3d">Mô hình 3D</button></div><div id="fe"></div><div class="dsum" id="dsum"></div><div id="dw"></div>';
   if(s.pv)h+='<div id="c2"></div>';
+  if(s.str)h+='<div id="c3"></div>';
   h+='</section>';
  });
  h+='<section><h2><b>✓</b>Xác nhận</h2><div class="sig"><div>Khách hàng<br>(ký, ghi rõ họ tên)</div><div>Kỹ thuật viên khảo sát<br>(ký, ghi rõ họ tên)</div></div></section>';
  $('app').innerHTML=h;
- refreshThumbs();renderCalc();progress();
+ renderFE();refreshAll();
 }
+function refreshAll(){renderHints();renderDraw();renderCalc();progress()}
 function allFields(){var a=[];SECS.forEach(function(s){s.f.forEach(function(f){a.push(f)})});return a}
 function done(f){var id=f[0],t=f[2];
  if(t==='i')return f[4].some(function(x,j){return PH[id+j]&&PH[id+j].length});
@@ -203,64 +373,128 @@ function putPH(){try{if(DB)DB.transaction('p','readwrite').objectStore('p').put(
 function refreshThumbs(){document.querySelectorAll('[data-t]').forEach(function(el){var k=el.dataset.t,a=PH[k]||[];el.innerHTML=a.map(function(u,i){return '<div class="im"><img src="'+u+'" alt=""><button data-d="'+k+'|'+i+'" aria-label="Xóa ảnh">×</button></div>'}).join('')})}
 function shrink(f,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,1280/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.72))};im.src=r.result};r.readAsDataURL(f)}
 
-/* ---------- Báo cáo in / xuất ---------- */
+/* ---------- Báo cáo & xuất ---------- */
 function row(l,v,full){return '<div class="'+(full?'w':'')+'"><b>'+esc(l)+':</b> '+esc(v).replace(/\n/g,'<br>')+'</div>'}
+function rcell(v,l){return '<div><strong>'+v+'</strong><span>'+l+'</span></div>'}
 function reportHTML(){
  var h='<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><title>Biên bản khảo sát</title><style>'
- +'@page{size:A4;margin:12mm}body{font:11px/1.4 "Be Vietnam Pro",Arial,sans-serif;color:#111;margin:0;padding:14px;max-width:190mm;margin:0 auto}'
+ +'@page{size:A4;margin:12mm}body{font:11px/1.4 "Be Vietnam Pro",Arial,sans-serif;color:#111;margin:0 auto;padding:14px;max-width:190mm}'
  +'header{border-bottom:2px solid #0b5c8a;padding-bottom:6px;margin-bottom:8px}h1{font-size:16px;margin:0;color:#0b5c8a}header p{margin:3px 0 0;color:#555;font-size:11px}'
  +'h2{font-size:12px;margin:10px 0 4px;padding:3px 7px;background:#e9f1f7;color:#0b3d5c;border-left:3px solid #e8890c;break-after:avoid}'
  +'.kv{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}.kv .w{grid-column:1/-1}.kv div{break-inside:avoid}'
  +'.res{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:6px 0;background:#fff6e8;border:1px dashed #e8890c;padding:6px;border-radius:6px}.res strong{display:block;font-size:13px;color:#0b5c8a}.res span{font-size:9.5px;color:#555}'
  +'table{width:100%;border-collapse:collapse;margin:4px 0;font-size:10.5px}th,td{border-bottom:1px solid #ddd;padding:3px 5px;text-align:right}th:nth-child(-n+2),td:nth-child(-n+2){text-align:left}'
  +'.imgs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:4px}figure{margin:0;break-inside:avoid}figure img{width:100%;display:block;border:1px solid #ddd}figcaption{font-size:9px;color:#555;text-align:center}'
+ +'.dr{width:100%;max-width:150mm;margin:4px 0;break-inside:avoid}.dr svg{width:100%;height:auto;display:block}.fx{font-size:10.5px;margin-top:6px;font-weight:600}'
  +'.sig{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;break-inside:avoid}.sig div{border:1px solid #bbb;height:70px;padding:5px;text-align:center;font-size:10px;color:#555}'
  +'.note{font-size:9.5px;color:#555;margin:2px 0 6px}</style></head><body>'
  +'<header><h1>BIÊN BẢN KHẢO SÁT ĐIỆN MẶT TRỜI MÁI NHÀ</h1><p>'+esc(gs('kh')||'—')+' · '+esc(gs('dc')||'—')+' · Ngày khảo sát: '+esc(gs('ng')||'—')+'</p></header>';
  SECS.forEach(function(s,i){
-  var kv='',imgs='';
+  var kv='',imgs='',extra='';
   s.f.forEach(function(f){var id=f[0],t=f[2];
    if(t==='i'){f[4].forEach(function(x,j){(PH[id+j]||[]).forEach(function(u){imgs+='<figure><img src="'+u+'"><figcaption>'+esc(x)+'</figcaption></figure>'})});return}
    if(t==='c'){var ch=f[4].filter(function(x,j){return st[id+j]});if(ch.length)kv+=row(f[1],ch.join(', '),1);return}
-   var v=st[id]===undefined||st[id]==='' ? (f[5]!==undefined?f[5]:'') : st[id];
+   var v=st[id]===undefined||st[id]===''?(f[5]!==undefined?f[5]:''):st[id];
    if(v==='')return;
    kv+=row(f[1],v,f[3]||t==='a');
   });
-  var extra='';
-  if(s.tariff){var t=tariff();if(t)extra+='<div class="res">'+cell2(fm(t.k)+(t.est?' (ước tính)':''),'kWh / tháng')+cell2(fm(t.pre),'Chưa VAT (đ)')+cell2(fm(t.tot),'Gồm VAT '+fm(t.v*100,1)+'% (đ)')+'</div><table><tr><th>Bậc</th><th>Mức (kWh)</th><th>Đơn giá</th><th>kWh</th><th>Thành tiền</th></tr>'+t.b.w.map(function(r,j){return '<tr><td>'+(j+1)+'</td><td>'+LB[j]+'</td><td>'+fm(TR[j][1])+'</td><td>'+fm(r[0])+'</td><td>'+fm(r[2])+'</td></tr>'}).join('')+'</table><div class="note">Biểu giá 5 bậc áp dụng từ 01/11/2026, chưa gồm VAT.</div>'}
-  if(s.pv){var t2=tariff(),p=t2?pv(t2.k):null;if(p)extra+='<div class="res">'+cell2(fm(p.n),'Số tấm cần')+cell2(fm(p.kp,2)+' kWp','Công suất')+cell2(fm(p.mon)+' kWh','Sản lượng / tháng')+cell2(fm(p.per,2)+' kWh','Mỗi tấm / ngày')+cell2(fm(p.area,1)+' m²','Diện tích cần')+cell2(fm(p.sv)+' đ','Tiết kiệm / tháng')+cell2(p.pb?fm(p.pb,1)+' năm':'–','Hoàn vốn')+'</div>'}
+  if(s.tariff){var t=tariff();if(t)extra+='<div class="res">'+rcell(fm(t.k)+(t.est?' (ước tính)':''),'kWh / tháng')+rcell(fm(t.pre),'Chưa VAT (đ)')+rcell(fm(t.tot),'Gồm VAT '+fm(t.v*100,1)+'% (đ)')+'</div><table><tr><th>Bậc</th><th>Mức (kWh)</th><th>Đơn giá</th><th>kWh</th><th>Thành tiền</th></tr>'+t.b.w.map(function(r,j){return '<tr><td>'+(j+1)+'</td><td>'+LB[j]+'</td><td>'+fm(TR[j][1])+'</td><td>'+fm(r[0])+'</td><td>'+fm(r[2])+'</td></tr>'}).join('')+'</table><div class="note">Biểu giá 5 bậc áp dụng từ 01/11/2026, chưa gồm VAT.</div>'}
+  if(s.draw){extra+=areaHTML()+'<div class="fx">Tổng thể các mặt</div><div class="dr">'+scene2D(layoutScene())+'</div>';(st.faces||[]).forEach(function(f,fi){var rc=layoutFace(f);extra+='<div class="fx">'+esc('Mặt '+(fi+1)+' · '+f.nm+' · hướng '+f.o+' · '+f.L+' × '+f.W+' m · bố trí '+rc.length+' tấm'+(f.ob&&f.ob.length?' · vật cản: '+f.ob.map(function(o){return (OB[o.t]||OB.kh).n}).join(', '):''))+'</div><div class="dr">'+svg2D(f,rc)+'</div>'})}
+  if(s.pv){var t2=tariff(),p=t2?pv(t2.k):null;if(p)extra+='<div class="res">'+rcell(fm(p.n),'Số tấm cần')+rcell(fm(totalN()),'Bố trí được (tấm)')+rcell(fm(p.kp,2)+' kWp','Công suất cần')+rcell(fm(p.mon)+' kWh','Sản lượng / tháng')+rcell(fm(p.area,1)+' m²','Diện tích cần')+rcell(fm(p.sv)+' đ','Tiết kiệm / tháng')+'</div>'}
+  if(s.str){var N=totalN(),si=strInfo(N,N*gv('psw',630)/1000);if(si)extra+='<div class="res">'+rcell(si.mppt,'Số MPPT')+rcell(si.strings,'Số string')+rcell(si.per,'Tấm / string')+'</div>'}
   if(!kv&&!imgs&&!extra)return;
   h+='<h2>'+String(i+1).padStart(2,'0')+' · '+esc(s.t)+'</h2>'+(kv?'<div class="kv">'+kv+'</div>':'')+extra+(imgs?'<div class="imgs">'+imgs+'</div>':'');
  });
  h+='<div class="sig"><div>Khách hàng<br>(ký, ghi rõ họ tên)</div><div>Kỹ thuật viên khảo sát<br>(ký, ghi rõ họ tên)</div></div></body></html>';
  return h;
 }
-function cell2(v,l){return '<div><strong>'+v+'</strong><span>'+l+'</span></div>'}
-function preview(html){var f=$('pvf');f.srcdoc=html;$('mpv').hidden=false}
+function fallbackDL(url,nm){var a=document.createElement('a');a.href=url;a.download=nm;document.body.appendChild(a);a.click();a.remove();toast('Đã tải file. Mở file rồi chọn In → Lưu dưới dạng PDF.')}
 function exportReport(){
- var html=reportHTML(),nm='Bien-ban-khao-sat-'+(gs('kh')||'khach-hang').trim().replace(/[^\w\u00C0-\u1EF9-]+/g,'-')+'-'+(gs('ng')||'')+'.html';
- var b=$('pr');
- if(!window.claude||!window.claude.use){preview(html);return}
- window.claude.use('downloads').then(function(d){if(!d)throw{code:'unavailable'};return d.save({filename:nm,data:html})})
-  .then(function(){toast('Đã lưu file. Mở file bằng trình duyệt rồi chọn In → Lưu dưới dạng PDF.')})
-  .catch(function(e){if(e&&e.code==='declined')return;preview(html)});
+ var html=reportHTML();
+ var nm='Bien-ban-khao-sat-'+(gs('kh')||'khach-hang').trim().replace(/[^\w\u00C0-\u1EF9-]+/g,'-')+'-'+(gs('ng')||'')+'.html';
+ var w=null;
+ try{w=window.open('','_blank')}catch(e){w=null}
+ if(w){
+  try{w.document.open();w.document.write(html);w.document.close();}catch(e){}
+  setTimeout(function(){try{w.focus();w.print()}catch(e){}},600);
+  toast('Đã mở bản in. Trong hộp thoại in, chọn "Lưu dưới dạng PDF".');
+  return;
+ }
+ var url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
+ if(window.claude&&window.claude.use){
+  window.claude.use('downloads')
+   .then(function(d){if(!d)throw{code:'unavailable'};return d.save({filename:nm,data:html})})
+   .then(function(){toast('Đã lưu file. Mở file rồi chọn In → Lưu dưới dạng PDF.')})
+   .catch(function(e){if(!(e&&e.code==='declined'))fallbackDL(url,nm)});
+  return;
+ }
+ fallbackDL(url,nm);
 }
 
 /* ---------- Sự kiện ---------- */
 var app=$('app');
-app.addEventListener('input',function(e){var k=e.target.dataset.k;if(!k)return;
- st[k]=e.target.type==='checkbox'?e.target.checked:e.target.value;persist();renderCalc();progress()});
-app.addEventListener('change',function(e){var k=e.target.dataset.k;if(!k)return;
- st[k]=e.target.type==='checkbox'?e.target.checked:e.target.value;persist();renderCalc();progress()});
-app.addEventListener('change',function(e){var k=e.target.dataset.p;if(!k||!e.target.files)return;
- var files=Array.prototype.slice.call(e.target.files);e.target.value='';
- files.forEach(function(f){shrink(f,function(u){(PH[k]=PH[k]||[]).push(u);putPH();refreshThumbs();progress()})})});
-app.addEventListener('click',function(e){var d=e.target.dataset.d;if(!d)return;d=d.split('|');if(PH[d[0]])PH[d[0]].splice(+d[1],1);putPH();refreshThumbs();progress()});
+function onFld(e){
+ var el=e.target,k=el.dataset.k;
+ if(!k)return;
+ if(el.type==='radio'){if(e.type==='input'||!el.checked)return;st[k]=el.value}
+ else st[k]=el.type==='checkbox'?el.checked:el.value;
+ persist();
+ if(k==='rt'||k==='sub'){build();return}
+ refreshAll();
+}
+function onFace(e){
+ var el=e.target,m=el.dataset.m;
+ if(!m)return;
+ var p=m.split('|'),f=st.faces[+p[0]],num=el.type==='number',v=num?(el.value===''?0:+el.value):el.value;
+ if(p.length===2)f[p[1]]=v;
+ else f.ob[+p[1]][p[2]]=p[2]==='t'?v:v;
+ persist();refreshAll();
+}
+app.addEventListener('input',function(e){if(e.target.dataset.m)onFace(e);else if(e.target.type!=='file')onFld(e)});
+app.addEventListener('change',function(e){if(e.target.dataset.m)onFace(e);else if(e.target.dataset.p){
+ var k=e.target.dataset.p,files=Array.prototype.slice.call(e.target.files||[]);e.target.value='';
+ files.forEach(function(f){shrink(f,function(u){(PH[k]=PH[k]||[]).push(u);putPH();refreshThumbs();progress()})})}
+ else onFld(e)});
+document.addEventListener('click',function(e){
+ var el=e.target.closest?e.target.closest('button'):null;if(!el)return;
+ if(el.dataset.d){var d=el.dataset.d.split('|');if(PH[d[0]])PH[d[0]].splice(+d[1],1);putPH();refreshThumbs();progress();return}
+ if(el.dataset.add!==undefined){var i=+el.dataset.add,sel=document.querySelector('[data-nt="'+i+'"]'),t=sel?sel.value:'kh',dd=OB[t];st.faces[i].ob.push({t:t,x:0.5,y:0.5,w:dd.w,h:dd.h,z:dd.z});persist();renderFE();refreshAll();return}
+ if(el.dataset.del!==undefined){var q=el.dataset.del.split('|');st.faces[+q[0]].ob.splice(+q[1],1);persist();renderFE();refreshAll();return}
+ if(el.dataset.v){VIEW=el.dataset.v;renderDraw();return}
+});
+var DRAG=null;
+document.addEventListener('pointerdown',function(e){
+ var g=e.target.closest?e.target.closest('[data-ob]'):null;if(!g)return;
+ var svg=g.closest('svg');if(!svg)return;
+ DRAG={g:g,svg:svg,p:g.dataset.ob.split('|').map(Number),mode:g.dataset.mode,x0:e.clientX,y0:e.clientY,ux:0,uy:0,mx:0,my:0,id:e.pointerId};
+ try{svg.setPointerCapture(e.pointerId)}catch(x){}
+ e.preventDefault();
+},{passive:false});
+document.addEventListener('pointermove',function(e){
+ if(!DRAG||e.pointerId!==DRAG.id)return;
+ var D=DRAG,r=D.svg.getBoundingClientRect(),vb=D.svg.viewBox.baseVal;
+ var k=Math.min(r.width/vb.width,r.height/vb.height);
+ D.ux=(e.clientX-D.x0)/k;D.uy=(e.clientY-D.y0)/k;
+ if(D.mode==='3d'){var A=D.ux/0.866,B=2*D.uy;D.mx=(A+B)/2;D.my=(B-A)/2}
+ else{D.mx=D.ux;D.my=D.uy}
+ D.g.setAttribute('transform','translate('+D.ux+' '+D.uy+')');
+});
+function endDrag(e){
+ if(!DRAG||e.pointerId!==DRAG.id)return;
+ var D=DRAG;DRAG=null;
+ if(Math.abs(D.mx)+Math.abs(D.my)<0.02){D.g.removeAttribute('transform');return}
+ var f=st.faces[D.p[0]],o=f&&f.ob[D.p[1]];if(!o)return;
+ var L=+f.L||0,W=+f.W||0;
+ o.x=Math.round(Math.max(0,Math.min(L-o.w,o.x+D.mx))*100)/100;
+ o.y=Math.round(Math.max(0,Math.min(W-o.h,o.y+D.my))*100)/100;
+ persist();renderFE();refreshAll();
+}
+document.addEventListener('pointerup',endDrag);
+document.addEventListener('pointercancel',endDrag);
 $('pr').onclick=exportReport;
 $('rs').onclick=function(){$('mdr').hidden=false};
 $('mc').onclick=function(){$('mdr').hidden=true};
 $('mo').onclick=function(){st={};PH={};persist();putPH();$('mdr').hidden=true;build();toast('Đã làm mới form.')};
-$('pvc').onclick=function(){$('mpv').hidden=true;$('pvf').srcdoc=''};
 openDB();
 build();
 </script>
